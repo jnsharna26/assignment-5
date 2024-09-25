@@ -72,4 +72,11 @@ historyTab.addEventListener("click", function () {
   historyTab.classList.add("btn-primary", "text-black");
   donationTab.classList.remove("btn-primary", "text-black");
   document.getElementById("doation-tab").classList.add("hidden");
-})
+});
+// another page
+const blogButton = document.getElementById("blog");
+
+blogButton.addEventListener("click", function() {
+  window.location.assign("faq.html"); // Replace with your actual FAQ page URL
+});
+

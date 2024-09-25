@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My FAQ</title>
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css/styles.css">
+</head>
+
+<body>
+  <header class=" bg-slate-100  sticky top-0 z-10">
+    <nav class="">
+      <div class="flex justify-between ">
+        <button id="Home" class=" btn btn-primary text-black ml-12 font-bold mt-5 mb-5">Home</button>
+        <p class="flex text-nowrap font-bold gap-4 my-5 ml-4 "><img src="assets/logo.png" alt=""><span
+            class="mt-6">Donate
+            Bangladesh</span>
+        </p>
+        <p id="" class="flex mr-20 text-nowrap gap-4 my-5"><img src="assets/coin.png" alt=""><span id="total-amount"
+            class="mt-3">5500 BDT</span></p>
+      </div>
+
+    </nav>
+
+  </header>
+
+  <h1 class="font-bold text-3xl my-10 pl-20">Important FAQ?</h1>
+  <div class="join join-vertical w-full px-20">
+    <div class="collapse collapse-arrow join-item border-base-300 border">
+      <input type="radio" name="my-accordion-4" checked="checked" />
+      <div class="collapse-title text-xl font-medium">What is the Document Object Model (DOM)?</div>
+      <div class="collapse-content">
+        <p>The DOM represents a document with a logical tree. Each branch of the tree ends in a node, and each node
+          contains
+          objects.</p>
+      </div>
+    </div>
+    <div class="collapse collapse-arrow join-item border-base-300 border">
+      <input type="radio" name="my-accordion-4" />
+      <div class="collapse-title text-xl font-medium">How do you select an element from DOM?</div>
+      <div class="collapse-content">
+        <p>The getElementById() method of the Document interface returns an Element object representing the element
+          whose id
+          property matches the specified string.</p>
+      </div>
+    </div>
+    <div class="collapse collapse-arrow join-item border-base-300 border">
+      <input type="radio" name="my-accordion-4" />
+      <div class="collapse-title text-xl font-medium">What is event delegation in the context of the DOM and why is it
+        useful</div>
+      <div class="collapse-content">
+        <p>event delegation allows you to attach a single listener to the parent container.</p>
+      </div>
+    </div>
+    <div class="collapse collapse-arrow join-item border-base-300 border">
+      <input type="radio" name="my-accordion-4" />
+      <div class="collapse-title text-xl font-medium">How do you manipulate an elements attributes and styles using the
+        DOM?</div>
+      <div class="collapse-content">
+        <p>If you want to change other attributes like id , href , or src , you can use the setAttribute() method.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>

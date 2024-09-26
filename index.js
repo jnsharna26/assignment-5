@@ -1,4 +1,5 @@
-const noakhaliDonateButton = document.getElementById("noakhali-donate-confirm").addEventListener("click", function () {
+const noakhaliDonateButton = document.getElementById("noakhali-donate-confirm");
+  noakhaliDonateButton.addEventListener("click", function () {
   const noakhaliInput = document.getElementById("noakhali-input").value;
   const Namount = parseFloat(noakhaliInput);
   
@@ -15,10 +16,11 @@ const noakhaliDonateButton = document.getElementById("noakhali-donate-confirm").
     document.getElementById("noakhali-input").value = '';
     // history
     const donationHistoryList = document.getElementById("donation-history-list");
-    const historyItem = document.createElement("div");
+    const historyItem = document.createElement("li");
     historyItem.className = "bg-white p-3 rounded-md  border-base-300 border text-center";
-    historyItem.textContent = `${Namount} Taka Donate for Flood at Noakhali, Bangladesh`;
+    historyItem.textContent = `${Namount} Taka Donate for Flood at Noakhali, Bangladesh on ${new Date().toLocaleString()}`;
     donationHistoryList.appendChild(historyItem);
+    localStorage.setItem("donationHistory", JSON.stringify(donationHistoryList.innerHTML));
   } 
    
   else {
@@ -26,7 +28,8 @@ const noakhaliDonateButton = document.getElementById("noakhali-donate-confirm").
   }
 });
 
-const feniDinateButton = document.getElementById("feni-donate-confirm").addEventListener("click", function () {
+const feniDonateButton = document.getElementById("feni-donate-confirm");
+  feniDonateButton.addEventListener("click", function () {
   const feniInput = document.getElementById("feni-input").value;
   const Famount = parseFloat(feniInput);
   if (!isNaN (Famount) && Famount > 0){
@@ -40,20 +43,25 @@ const feniDinateButton = document.getElementById("feni-donate-confirm").addEvent
     totalAmount.innerText = totalFeniAmount;
     document.getElementById("feni-input").value = '';
     // history
+
     const donationHistoryList = document.getElementById("donation-history-list");
-    const historyItem = document.createElement("div");
+    const historyItem = document.createElement("li");
     historyItem.className = "bg-white p-3 rounded-md  border-base-300 border text-center";
-    historyItem.textContent = `${Famount} Taka Donate for Flood at Feni, Bangladesh`;
+    historyItem.textContent = `${Famount} Taka Donate for Flood at Feni, Bangladesh on ${new Date().toLocaleString()}`;
     donationHistoryList.appendChild(historyItem);
+    localStorage.setItem("donationHistory", JSON.stringify(donationHistoryList.innerHTML));
 }
   else {
     alert("Invalid input");
 }
 });
 
-const qutoaDonateButton = document.getElementById("quota-donate-confirm").addEventListener("click", function () {
+const qutoaDonateButton = document.getElementById("quota-donate-confirm");
+qutoaDonateButton.addEventListener("click", function () {
+  
   const quotaInput = document.getElementById("quota-input");
   const qAmount = parseFloat(quotaInput.value);
+
   if (!isNaN(qAmount) && qAmount > 0) {
     const totalQuotaElement = document.getElementById("quota-amount");
     let quotaAmount = parseFloat(totalQuotaElement.innerText);
@@ -63,15 +71,15 @@ const qutoaDonateButton = document.getElementById("quota-donate-confirm").addEve
      let totalQuotaAmount = parseFloat(totalAmount.innerText);
     totalQuotaAmount = totalQuotaAmount - quotaAmount;
     totalAmount.innerText = totalQuotaAmount;
-
     document.getElementById("quota-input").value = '';
     // history
+
     const donationHistoryList = document.getElementById("donation-history-list");
-    const historyItem = document.createElement("div");
+    const historyItem = document.createElement("li");
     historyItem.className = "bg-white p-3 rounded-md  border-base-300 border text-center";
-    historyItem.textContent = `${qAmount} Taka Aid for Injured in the Quota Movement, Bangladesh`;
+    historyItem.textContent = `${qAmount} Taka Aid for Injured in the Quota Movement, Bangladesh on ${new Date().toLocaleString()}`;
     donationHistoryList.appendChild(historyItem);
-   
+   localStorage.setItem("donationHistory", JSON.stringify(donationHistoryList.innerHTML));
   }
   else {
     alert("Invalid input");
@@ -79,21 +87,88 @@ const qutoaDonateButton = document.getElementById("quota-donate-confirm").addEve
 });
 // history
 
-const historyTab = document.getElementById("history-tab");
+  const historyTab = document.getElementById("history-tab");
 const donationTab = document.getElementById("donation");
-
 historyTab.addEventListener("click", function () {
   historyTab.classList.add("btn-primary", "text-black");
   donationTab.classList.remove("btn-primary", "text-black");
-  document.getElementById("doation-tab").classList.add("hidden");
+  document.getElementById("donation").classList.add("hidden");
+  document.getElementById("history-section").classList.remove("hidden");
+
 });
+// donationTab
+donationTab.addEventListener("click", function () {
+  donationTab.classList.add("btn-primary", "text-black");
+  historyTab.classList.remove("btn-primary", "text-black");
+  document.getElementById("donation").classList.remove("hidden");
+  document.getElementById("history-section").classList.add("hidden");
+});
+  
+
 // another page
 document.getElementById('blog').addEventListener('click', function () { 
    window.open('faq.html', '_blank'); 
 });
+
 // modal
+function createModal() {
+    // modal container
+    const modal = document.createElement('div');
+  modal.className = 'fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50';
+  // content
+    const modalContent = document.createElement('div');
+  modalContent.className = 'bg-white rounded-lg shadow-lg p-6 w-1/3 mt-32';
+  // title
+    const modalTitle = document.createElement('h2');
+    modalTitle.className = 'text-xl font-bold text-center text-green-600 mt-10';
+    modalTitle.textContent = 'Donation Successful!';
 
+    // message
+    const modalMessage = document.createElement('p');
+    modalMessage.className = 'mt-4 text-center text-gray-600';
+    modalMessage.textContent = 'Thank you for your contribution';
 
-// Example usage:
-// addDonation(100, "Support Education", "2023-12-25 15:30");
-// addDonation(50, "Help the Homeless", "2024-01-10 10:00");
+    // close button
+    const closeButton = document.createElement('button');
+    closeButton.className = 'bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 mt-6 block mx-auto';
+    closeButton.textContent = 'Close';
+    closeButton.onclick = function () {
+        document.body.removeChild(modal); 
+    };
+// append child
+    modalContent.appendChild(modalTitle);
+    modalContent.appendChild(modalMessage);
+    modalContent.appendChild(closeButton);
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal); 
+}
+
+// apply
+const noakhaliButton = document.getElementById("noakhali-donate-confirm");
+        noakhaliButton.addEventListener("click", function () {
+            
+            // onsole.log("Input value:", noakhaliInput); 
+
+                createModal();
+                document.getElementById("noakhali-input").value = ''; 
+
+        });
+        const feniButton= document.getElementById("feni-donate-confirm");
+        feniButton.addEventListener("click", function () {
+          
+
+            // console.log("Input value:", noakhaliInput); 
+
+                createModal();
+                document.getElementById("feni-input").value = ''; 
+
+        });
+        const quotaButton = document.getElementById("quota-donate-confirm");
+        quotaButton.addEventListener("click", function () {
+            
+            // console.log("Input value:", feniInput); // Debugging line
+
+                createModal();
+                document.getElementById("quota-input").value = ''; 
+
+        });

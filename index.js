@@ -92,7 +92,7 @@ const donationTab = document.getElementById("donation");
 historyTab.addEventListener("click", function () {
   historyTab.classList.add("btn-primary", "text-black");
   donationTab.classList.remove("btn-primary", "text-black");
-  document.getElementById("donation").classList.add("hidden");
+  document.getElementById("donationTab").classList.add("hidden");
   document.getElementById("history-section").classList.remove("hidden");
 
 });
@@ -100,7 +100,7 @@ historyTab.addEventListener("click", function () {
 donationTab.addEventListener("click", function () {
   donationTab.classList.add("btn-primary", "text-black");
   historyTab.classList.remove("btn-primary", "text-black");
-  document.getElementById("donation").classList.remove("hidden");
+  document.getElementById("donationTab").classList.remove("hidden");
   document.getElementById("history-section").classList.add("hidden");
 });
   

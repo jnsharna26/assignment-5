@@ -12,7 +12,7 @@ const noakhaliDonateButton = document.getElementById("noakhali-donate-confirm");
       const totalAmount = document.getElementById("total-amount");
      let totalNoakhaliAmount = parseFloat(totalAmount.innerText);
     totalNoakhaliAmount = totalNoakhaliAmount - noakhaliAmount;
-    totalAmount.innerText = totalNoakhaliAmount;
+    totalAmount.innerText = totalNoakhaliAmount.toFixed(2);
     document.getElementById("noakhali-input").value = '';
     // history
     const donationHistoryList = document.getElementById("donation-history-list");
@@ -40,7 +40,7 @@ const feniDonateButton = document.getElementById("feni-donate-confirm");
       const totalAmount = document.getElementById("total-amount");
      let totalFeniAmount = parseFloat(totalAmount.innerText);
     totalFeniAmount = totalFeniAmount - feniAmount;
-    totalAmount.innerText = totalFeniAmount;
+    totalAmount.innerText = totalFeniAmount.toFixed(2);
     document.getElementById("feni-input").value = '';
     // history
 
@@ -70,7 +70,7 @@ qutoaDonateButton.addEventListener("click", function () {
      const totalAmount = document.getElementById("total-amount");
      let totalQuotaAmount = parseFloat(totalAmount.innerText);
     totalQuotaAmount = totalQuotaAmount - quotaAmount;
-    totalAmount.innerText = totalQuotaAmount;
+    totalAmount.innerText = totalQuotaAmount.toFixed(2);
     document.getElementById("quota-input").value = '';
     // history
 

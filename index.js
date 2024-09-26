@@ -13,15 +13,17 @@ const noakhaliDonateButton = document.getElementById("noakhali-donate-confirm").
     totalNoakhaliAmount = totalNoakhaliAmount - noakhaliAmount;
     totalAmount.innerText = totalNoakhaliAmount;
     document.getElementById("noakhali-input").value = '';
+    // history
+    const donationHistoryList = document.getElementById("donation-history-list");
+    const historyItem = document.createElement("div");
+    historyItem.className = "bg-white p-3 rounded-md  border-base-300 border text-center";
+    historyItem.textContent = `${Namount} Taka Donate for Flood at Noakhali, Bangladesh`;
+    donationHistoryList.appendChild(historyItem);
+  } 
    
-    
-    
-    
-  } else {
+  else {
     alert("invalid input");
   }
-
-
 });
 
 const feniDinateButton = document.getElementById("feni-donate-confirm").addEventListener("click", function () {
@@ -37,6 +39,12 @@ const feniDinateButton = document.getElementById("feni-donate-confirm").addEvent
     totalFeniAmount = totalFeniAmount - feniAmount;
     totalAmount.innerText = totalFeniAmount;
     document.getElementById("feni-input").value = '';
+    // history
+    const donationHistoryList = document.getElementById("donation-history-list");
+    const historyItem = document.createElement("div");
+    historyItem.className = "bg-white p-3 rounded-md  border-base-300 border text-center";
+    historyItem.textContent = `${Famount} Taka Donate for Flood at Feni, Bangladesh`;
+    donationHistoryList.appendChild(historyItem);
 }
   else {
     alert("Invalid input");
@@ -57,6 +65,12 @@ const qutoaDonateButton = document.getElementById("quota-donate-confirm").addEve
     totalAmount.innerText = totalQuotaAmount;
 
     document.getElementById("quota-input").value = '';
+    // history
+    const donationHistoryList = document.getElementById("donation-history-list");
+    const historyItem = document.createElement("div");
+    historyItem.className = "bg-white p-3 rounded-md  border-base-300 border text-center";
+    historyItem.textContent = `${qAmount} Taka Aid for Injured in the Quota Movement, Bangladesh`;
+    donationHistoryList.appendChild(historyItem);
    
   }
   else {
@@ -74,9 +88,12 @@ historyTab.addEventListener("click", function () {
   document.getElementById("doation-tab").classList.add("hidden");
 });
 // another page
-const blogButton = document.getElementById("blog");
-
-blogButton.addEventListener("click", function() {
-  window.location.assign("faq.html"); // Replace with your actual FAQ page URL
+document.getElementById('blog').addEventListener('click', function () { 
+   window.open('faq.html', '_blank'); 
 });
+// modal
 
+
+// Example usage:
+// addDonation(100, "Support Education", "2023-12-25 15:30");
+// addDonation(50, "Help the Homeless", "2024-01-10 10:00");

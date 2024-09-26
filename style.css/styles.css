@@ -2,13 +2,20 @@
   background-color: #B4F461;
   border-style: none;
 }
-.input-field{
-  background-color: ghostwhite;
-  border-style: none;
-  width: 100%;
-  height:100% ;
-}
-.image{
+
+  .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.hidden {
+  display: none;
 }

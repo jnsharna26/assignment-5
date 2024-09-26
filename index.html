@@ -11,8 +11,8 @@
 </head>
 
 <body>
-  <header class=" bg-slate-100  sticky top-0 z-10">
-    <nav class="">
+  <header class=" bg-slate-100  sticky top-0 z-10 overflow-auto">
+    <nav class=" ">
       <div class="flex justify-between ">
         <button id="blog" class=" btn btn-primary text-black ml-12 font-bold mt-5">Blog</button>
         <p class="flex text-nowrap font-bold gap-4 mt-5 ml-4 "><img src="assets/logo.png" alt=""><span
@@ -112,25 +112,27 @@
 
     </section>
     <section>
-
-      <div id="history-list">
-
-
+      <div class="donation-history">
+        <h2 class="text-center font-bold text-2xl my-8">Donation History</h2>
+        <ul id="donation-history-list"></ul>
       </div>
+
+
+
     </section>
-    <!-- Open the modal using ID.showModal() method -->
-    <button class="btn" onclick="my_modal_2.showModal()">open modal</button>
-    <dialog id="my_modal_2" class="modal">
-      <div class="modal-box">
-        <h3 class="text-lg font-bold">Hello!</h3>
-        <p class="py-4">Press ESC key or click outside to close</p>
+    <!-- Modal -->
+    <!-- <button id="donateButton">Donate</button>
+    
+    <div id="donationSuccessModal" class="modal hidden">
+      <div class="modal-content bg-white rounded-lg p-6">
+        <h2 class="text-2xl font-bold text-center mb-4">Donation Successful!</h2>
+        <p class="text-center">Thank you for your generous donation.</p>
+        <button class="bg-blue-500 text-white rounded-lg px-4 py-2 mt-4">Close</button>
       </div>
-      <form method="dialog" class="modal-backdrop">
-        <button>close</button>
-      </form>
-    </dialog>
+    </div> -->
   </main>
   <script src="index.js"></script>
+  <!-- <script src="script.js"></script> -->
 </body>
 
 </html>
